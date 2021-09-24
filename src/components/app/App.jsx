@@ -5,9 +5,6 @@ const useRecord = (init) => {
   const [colorArray, setColorArray] = useState(init);
   const [index, setIndex] = useState(0);
 
-  useEffect(() => {
-
-  });
 
 
   return {
