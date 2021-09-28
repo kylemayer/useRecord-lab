@@ -19,16 +19,16 @@ describe('App component', () => {
     const redo = screen.getByRole('redo');
 
 
-    expect(colorPicker.value).toBe(red);    //init color of red
+    fireEvent.change(colorPicker, { target: { value: red } }); //change to red
+    fireEvent.change(colorPicker, { target: { value: blue } }); //change to blue
+    fireEvent.change(colorPicker, { target: { value: green } }); //change to green
+    fireEvent.click(undo); //change to blue
+    fireEvent.click(undo); //change to red
+    fireEvent.click(redo); //change to blue
+    fireEvent.change(colorPicker, { target: { value: yellow } }); //change to yellow
 
-    fireEvent.change(colorPicker, { target: { value: blue } });
-    fireEvent.change(colorPicker, { target: { value: green } });
-    fireEvent.click(undo);
-    fireEvent.click(undo);
-    fireEvent.click(redo);
 
-
-    expect(colorPicker.value).toBe(blue);
+    expect(colorPicker.value).toBe(yellow);
 
   });
 });
