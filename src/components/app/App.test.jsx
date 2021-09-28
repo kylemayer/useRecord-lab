@@ -8,13 +8,24 @@ describe('App component', () => {
   it('renders App, displays color picker and buttons', () => {
     const app = render(<App />);
 
+
     const red = '#ff0000';
-    // const blue = '#0000ff';
-    // const yellow = '#ffff00';
-    // const green = '#00ff00';
+    const blue = '#0000ff';
+    const yellow = '#ffff00';
+    const green = '#00ff00';
 
     const colorPicker = app.getByLabelText('color-picker');
-    expect(colorPicker.value).toBe(red);
+    const undo = screen.getByRole('undo');
+    const redo = screen.getByRole('redo');
+
+
+    expect(colorPicker.value).toBe(red);    //init color of red
+
+    fireEvent.change(colorPicker, { target: { value: blue } });
+    fireEvent.change(colorPicker, { target: { value: green } });
+
+
+    expect(colorPicker.value).toBe(green);
 
   });
 });
