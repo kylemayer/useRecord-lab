@@ -40,7 +40,6 @@ function App() {
 
   return (
     <>
-
       <button onClick={undo} role="undo">undo</button>
       <button onClick={redo} role="redo">redo</button>
       <input type="color" value={current} onChange={({ target }) => record(target.value)} aria-label="color-picker"/>
