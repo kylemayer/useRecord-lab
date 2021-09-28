@@ -25,9 +25,10 @@ describe('App component', () => {
     fireEvent.change(colorPicker, { target: { value: green } });
     fireEvent.click(undo);
     fireEvent.click(undo);
+    fireEvent.click(redo);
 
 
-    expect(colorPicker.value).toBe(red);
+    expect(colorPicker.value).toBe(blue);
 
   });
 });
